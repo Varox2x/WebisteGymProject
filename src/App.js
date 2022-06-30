@@ -20,6 +20,5 @@ function App() {
   );
 }
 
-//halo
 
 export default App;
