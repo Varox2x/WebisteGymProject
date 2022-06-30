@@ -1,0 +1,11 @@
+@keyframes anime  {
+    0%   {opacity: 0}
+    100% {opacity: 100%}
+}
+
+
+.animation{
+    animation-name: anime;
+    animation-duration: 600ms;
+    animation-iteration-count: 1;
+}
