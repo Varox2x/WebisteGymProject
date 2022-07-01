@@ -52,7 +52,7 @@ export default (props) => {
                 </NavigationContainer>
             </Navigation>
             <Container height={pageSize}>
-                <Menu style={{display: displayMenu? "block" : "none"}} onMouseEnter={() => setMauseOn(true)} onMouseLeave={() => setMauseOn(false)}>
+                <Menu props={displayMenu}  onMouseEnter={() => setMauseOn(true)} onMouseLeave={() => setMauseOn(false)}>
                     <MenuListMenu setDisplayMenu={setDisplayMenu} pageSizeWight={pageSizeWight} isMouseon={mauseOn}/>
                 </Menu>
                 <Wrapper blur={mauseOn == true && pageSizeWight > 768}>

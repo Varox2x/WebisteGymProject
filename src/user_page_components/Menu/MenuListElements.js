@@ -97,6 +97,7 @@ export const InputContainerSearch = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 15px;
+
 `
 
 export const SearschTitle = styled.p`
@@ -127,3 +128,13 @@ export const CloseIcon = styled(FaTimes)`
     color: #fff;
 `;
 
+
+export const InputSearch = styled.input`
+  width: 100%;
+  height: 30px;
+  border-radius: 7px;
+  border: none;
+  &:focus{
+    border: 2px solid #85BAFF;
+  }
+`

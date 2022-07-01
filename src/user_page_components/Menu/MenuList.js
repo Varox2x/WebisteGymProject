@@ -6,7 +6,7 @@ import {
     MenuList,
     SingleTitle,
     MenuListElement,
-    MenuListElementA, Search, SearchIcon, InputContainerSearch, SearschTitle, CloseMenu, CloseIcon
+    MenuListElementA, Search, SearchIcon, InputContainerSearch, SearschTitle, CloseMenu, CloseIcon, InputSearch
 } from "./MenuListElements";
 import {FcSearch } from "react-icons/fc";
 import {BiDumbbell } from "react-icons/bi";
@@ -17,6 +17,13 @@ import {FcSportsMode} from "react-icons/fc"
 import {FcDataSheet} from "react-icons/fc"
 import {AiOutlineFileDone} from "react-icons/ai"
 import {IoBarChart} from "react-icons/io5"
+
+import {CgGym} from "react-icons/cg"
+import {GrPlan} from "react-icons/gr"
+import {AiOutlineCalendar} from "react-icons/ai"
+import {IoMdPaperPlane} from "react-icons/io"
+import {BsSearch} from "react-icons/bs"
+
 
 
 
@@ -34,33 +41,35 @@ const IconAndTitle = ({isTitle, name, children, display, goTo, pageSizeWight}) =
 
 const MenuListMenu = ({isMouseon,shadow,pageSizeWight, setDisplayMenu}) => {
 
-    console.log(pageSizeWight)
+    function closeMenu(){
+        setDisplayMenu(false);
+    }
   return(
       <>
-          <MenuList>
+          <MenuList onClick={() => closeMenu()}>
               <MenuContainers>
                   <CloseMenu onClick={() => setDisplayMenu(false)} style={{display: (pageSizeWight < 768)? "bolck" : "none"}}>
                       <CloseIcon/>
                   </CloseMenu>
               </MenuContainers>
               <MenuContainers style={{display: (pageSizeWight < 768)? "none" : "block"}}>
-                  <Search><SearchIcon><FcSearch style={{fontSize: "55px", margin: "8px"}}/></SearchIcon><SearschTitle>Szukaj:</SearschTitle><InputContainerSearch style={{opacity: isMouseon? "100%" : "0", transition: "all 600ms ease-in"}}><input style={{width: "100%", height: "30px", borderRadius: "7px", border: "none"}} /></InputContainerSearch></Search>
+                  <Search><SearchIcon><BsSearch style={{fontSize: "55px", margin: "8px", color: "#85BAFF"}}/></SearchIcon><SearschTitle>Szukaj:</SearschTitle><InputContainerSearch style={{opacity: isMouseon? "100%" : "0", transition: "all 600ms ease-in"}}><InputSearch /></InputContainerSearch></Search>
               </MenuContainers>
               <MenuContainers>
                   <IconAndTitle pageSizeWight={pageSizeWight} goTo={"/strefauzytkownika/trainingNow"} display={isMouseon} name={"Treining"} isTitle={true}>
-                      <FcSportsMode style={{margin: "auto"}}/>
+                      <CgGym style={{margin: "auto", color: "#85BAFF"}}/>
                   </IconAndTitle>
               </MenuContainers>
               <MenuContainers>
-                  <IconAndTitle pageSizeWight={pageSizeWight} goTo={"/strefauzytkownika/planmain"} display={isMouseon} name={"Planuj"} isTitle={true}><GiNotebook style={{margin: "auto"}}></GiNotebook></IconAndTitle>
-                  <IconAndTitle pageSizeWight={pageSizeWight} display={isMouseon} name={"Cwiczenia"} isTitle={false}><AiOutlineFileDone style={{margin: "auto"}}/></IconAndTitle>
-                  <IconAndTitle pageSizeWight={pageSizeWight} display={isMouseon} name={"Plan Treningowy"} isTitle={false}><FcDataSheet style={{margin: "auto"}}/></IconAndTitle>
+                  <IconAndTitle pageSizeWight={pageSizeWight} goTo={"/strefauzytkownika/planmain"} display={isMouseon} name={"Planuj"} isTitle={true}><GiNotebook style={{margin: "auto", color: "#85BAFF"}}></GiNotebook></IconAndTitle>
+                  <IconAndTitle pageSizeWight={pageSizeWight} display={isMouseon} name={"Cwiczenia"} isTitle={false}><AiOutlineFileDone style={{margin: "auto", color: "#85BAFF"}}/></IconAndTitle>
+                  <IconAndTitle pageSizeWight={pageSizeWight} display={isMouseon} name={"Plan Treningowy"} isTitle={false}><IoMdPaperPlane style={{margin: "auto", color: "#85BAFF"}}/></IconAndTitle>
               </MenuContainers>
               <MenuContainers>
-                  <IconAndTitle pageSizeWight={pageSizeWight} display={isMouseon} name={"Statystyki"} isTitle={true}><IoBarChartSharp style={{margin: "auto"}} /></IconAndTitle>
-                  <IconAndTitle pageSizeWight={pageSizeWight} display={isMouseon} name={"Kalendarz"} isTitle={false}><FcPlanner style={{margin: "auto"}}/></IconAndTitle>
-                  <IconAndTitle pageSizeWight={pageSizeWight} display={isMouseon} name={"Ćwiczenia"} isTitle={false}><BiDumbbell style={{margin: "auto"}}/></IconAndTitle>
-                  <IconAndTitle pageSizeWight={pageSizeWight} display={isMouseon} name={"Trening"} isTitle={false}><IoBarChart style={{margin: "auto"}}/></IconAndTitle>
+                  <IconAndTitle pageSizeWight={pageSizeWight} display={isMouseon} name={"Statystyki"} isTitle={true}><IoBarChartSharp style={{margin: "auto", color: "#85BAFF"}} /></IconAndTitle>
+                  <IconAndTitle pageSizeWight={pageSizeWight} display={isMouseon} name={"Kalendarz"} isTitle={false}><AiOutlineCalendar style={{margin: "auto", color: "#85BAFF"}}/></IconAndTitle>
+                  <IconAndTitle pageSizeWight={pageSizeWight} display={isMouseon} name={"Ćwiczenia"} isTitle={false}><BiDumbbell style={{margin: "auto", color: "#85BAFF"}}/></IconAndTitle>
+                  <IconAndTitle pageSizeWight={pageSizeWight} display={isMouseon} name={"Trening"} isTitle={false}><IoBarChart style={{margin: "auto", color: "#85BAFF"}}/></IconAndTitle>
               </MenuContainers>
           </MenuList>
       </>

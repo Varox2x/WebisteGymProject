@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import {
-    Container,
+    Container, DownIcon,
     ExerciseName,
-    InfoInputsWrapper, InputTitle,
+    InfoInputsWrapper, InputTitle, SwitchOrderButton,
     TopWrap,
-    TopWrapButton, TrainingExerciseInput,
+    TopWrapButton, TrainingExerciseInput, UpIcon,
     WrapperInfo
 } from "./SingleExerciseElementElements";
 
@@ -22,19 +22,21 @@ export default ({nameex, series, phase, repeats, description, breaks, indexex, p
 
     return(
         <>
-            <Container style={{height: "45%", width: `${90 - (indexex * 2)}%`, bottom: `${indexex * 6}%`, left: `${indexex * 1.07}%`, zIndex: `${20 - indexex}`}}>
+            <Container style={{height: "45%", width: `${90 - (indexex * 3)}%`, bottom: `${indexex * 6.7}%`, left: `${indexex * 1.07 + 5}%`, zIndex: `${20 - indexex}`}}>
                 <TopWrap>
-                    <TopWrapButton onClick={(e) => placefirst(e)} name={indexex}>Edit</TopWrapButton>
-                    <button style={{display: `${(indexex == arraylength)? "none" : "block"}`}} name={indexex} onClick={(e) => moveUpInIndex(e, false)}>down</button>
-                    <button style={{display: `${(indexex == 0)? "none" : "block"}`}} name={indexex} onClick={(e) => moveUpInIndex(e, true)}>up</button>
+                    <SwitchOrderButton style={{left: "35%", right:"35%"}} onClick={(e) => placefirst(e)} name={indexex}></SwitchOrderButton>
+                    <SwitchOrderButton style={{display: `${(indexex == arraylength)? "none" : "block"}`, right: "65%", left: "0"}} name={indexex} onClick={(e) => moveUpInIndex(e, false)}></SwitchOrderButton>
+                    <DownIcon style={{display: `${(indexex == arraylength)? "none" : "block"}`}}/>
+                    <SwitchOrderButton style={{display: `${(indexex == 0)? "none" : "block"}`, left: "65%", right: "0"}} name={indexex} onClick={(e) => moveUpInIndex(e, true)}></SwitchOrderButton>
+                    <UpIcon style={{display: `${(indexex == 0)? "none" : "block"}`}}/>
                     <ExerciseName>{nameex}</ExerciseName>
                 </TopWrap>
                 <WrapperInfo>
-                    {(indexex ==0)? <>                    <InfoInputsWrapper><InputTitle>Liczba serii:</InputTitle><TrainingExerciseInput name="series" value={series} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper>
-                        <InfoInputsWrapper><InputTitle>Liczba powtórzeń:</InputTitle><TrainingExerciseInput name="repeats" value={repeats} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper>
-                        <InfoInputsWrapper><InputTitle>Faza:</InputTitle><TrainingExerciseInput name="phase" value={phase} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper>
-                        <InfoInputsWrapper><InputTitle>Przerwa:</InputTitle><TrainingExerciseInput name="break" value={breaks} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper>
-                        <InfoInputsWrapper><InputTitle>Opis:</InputTitle><TrainingExerciseInput name="description" value={description} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper></> : null}
+                    {(indexex ==0)? <>                    <InfoInputsWrapper><InputTitle>Liczba serii:</InputTitle><TrainingExerciseInput type={"number"} name="series" value={series} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper>
+                        <InfoInputsWrapper><InputTitle>Liczba powtórzeń:</InputTitle><TrainingExerciseInput type={"number"} name="repeats" value={repeats} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper>
+                        <InfoInputsWrapper><InputTitle>Faza:</InputTitle><TrainingExerciseInput type={"number"} name="phase" value={phase} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper>
+                        <InfoInputsWrapper><InputTitle>Przerwa:</InputTitle><TrainingExerciseInput type={"number"} name="break" value={breaks} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper>
+                        <InfoInputsWrapper><InputTitle>Opis:</InputTitle><TrainingExerciseInput style={{width: "70%"}} name="description" value={description} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper></> : null}
                 </WrapperInfo>
             </Container>
         </>

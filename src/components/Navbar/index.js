@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import {FaBars} from 'react-icons/fa'
 import {Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtnLink, NavBtn} from './NavbarElements'
+import {useAuth} from "../../context/AuthContext";
 
 const Navbar = ({toggle}) => {
 
     const [mobileInconColor, setmobileInconColor] = useState("#fff");
+    const {currentUser} = useAuth();
 
         document.addEventListener('scroll', function (e) {
             if (window.scrollY >= 800){
@@ -17,6 +19,8 @@ const Navbar = ({toggle}) => {
                 setmobileInconColor("#fff");
             }
         })
+
+
 
   return (
       <>
@@ -38,7 +42,7 @@ const Navbar = ({toggle}) => {
                       </NavItem>
                   </NavMenu>
                   <NavBtn>
-                      <NavBtnLink to='/strefauzytkownika'>Sign In</NavBtnLink>
+                      <NavBtnLink to='/strefauzytkownika'>{"Strefa Użytkownika"}</NavBtnLink>
                   </NavBtn>
               </NavbarContainer>
           </Nav>

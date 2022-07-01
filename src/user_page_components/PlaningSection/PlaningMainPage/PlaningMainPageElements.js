@@ -9,7 +9,7 @@ import { keyframes } from 'styled-components'
 const ColumnAnimation = keyframes`
  0% { opacity: 100% }
  25% { opacity: 100% }
- 50% { opacity: 0  ; border: 4px solid black}
+ 50% { opacity: 30%  }
  100% { opacity: 100% }
 `
 
@@ -53,6 +53,10 @@ export const SingleBlockContainer = styled.div`
   top: 0;
   z-index: 20;
   background: white;
+  transition: background 150ms ease-out;
+  &:hover{
+    background: #b3d4fc;
+  }
 `
 export const SingleBlockContainerContent = styled.div`
     margin-top: 10px;

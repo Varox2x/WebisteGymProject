@@ -58,8 +58,9 @@ export const Menu = styled.div`
   width: 80px;
   position: absolute;
   z-index: 10;
-  transition: all 600ms ease-out;
+  transition: all 540ms ease-out;
   background: #3A3F44;
+
   @media screen and (min-width: 769px){
     &:hover{
       width: 240px;
@@ -68,12 +69,15 @@ export const Menu = styled.div`
     left: 0;
   }
   @media screen and (max-width: 768px){
+    transition: all 200ms ease-out;
     width: 100%;
     height: 100%;
     opacity: 94%;
     position: fixed;
     z-index: 555;
     margin-top: -80px;
+    opacity: ${({props}) => (props ? `100%` : `0`)};
+  display: ${({props}) => (props ? `block` : `none`)};
   }
 `
 

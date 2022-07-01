@@ -1,6 +1,19 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {AuthProvider, useAuth} from "../context/AuthContext";
 import {Link, useNavigate} from "react-router-dom";
+import Video from "../videos/benchpress.mp4";
+
+import {
+    Background,
+    ButtonsWrapper,
+    Container,
+    Error,
+    InputInfo,
+    InputTitle,
+    LabelInfo,
+    LoginButton, MainTitle, VideoBg,
+    Wrapper
+} from "./LoginPageElements";
 
 
 export default () => {
@@ -11,10 +24,18 @@ export default () => {
     const [loading,setLoading] = useState(false)
     const history = useNavigate()
 
+    const [pageHeight, setPageHeight] = useState()
+
+    useEffect(() =>{
+        setPageHeight(window.innerHeight)
+        console.log(window.innerHeight)
+    },[])
+
     const [inputInfo, setInputInfo] = useState({
         login: "",
         mail: "",
-        password: ""
+        password: "",
+        passwordRepeat: ""
     });
 
     function typing(e){
@@ -31,7 +52,7 @@ export default () => {
             setLoading(true)
             history("/strefauzytkownika")
         } catch(error) {
-            setError('Failed to sign in')
+            setError('Błąd Logowania')
             console.log(error)
         }
         setLoading(false)
@@ -49,20 +70,35 @@ export default () => {
 
     return (
         <>
+            <Container style={{height: `${pageHeight}px`}}>
+                <Background>
+                    <VideoBg  autoPlay loop muted src={Video} type='video/mp4'/>
+                </Background>
+
+                <Wrapper>
             <AuthProvider>
-                {error && <p>{error}</p>}
-                <label>
-                    <p>Mail</p>
-                    <input onChange={(e) => typing(e)} name={"mail"} value={inputInfo.mail}/>
-                </label>
-                <label>
-                    <p>Haslo</p>
-                    <input onChange={(e) => typing(e)} name={"password"} value={inputInfo.password}/>
-                </label>
-                <button disabled={loading} onClick={signupClick}>GIT</button>
-                <Link to="/forgotpassword">Zapomniales hasla?</Link>
-                <button onClick={logoutUser} >wyloguj</button>
+                <MainTitle>Logowanie</MainTitle>
+                {error && <Error>{error}</Error>}
+                <LabelInfo>
+                    <InputTitle>Mail:</InputTitle>
+                    <InputInfo onChange={(e) => typing(e)} name={"mail"} type="mail" value={inputInfo.mail}/>
+                </LabelInfo>
+                <LabelInfo>
+                    <InputTitle>Hasło:</InputTitle>
+                    <InputInfo onChange={(e) => typing(e)} name={"password"} type="password" value={inputInfo.password}/>
+                </LabelInfo>
+                <LabelInfo>
+                    <InputTitle>Powtórz hasło:</InputTitle>
+                    <InputInfo onChange={(e) => typing(e)} name={"passwordRepeat"} type="password" value={inputInfo.passwordRepeat}/>
+                </LabelInfo>
+                <ButtonsWrapper>
+                    {/*<Link to="/forgotpassword">Zapomniałeś hasła?</Link>*/}
+                    <LoginButton disabled={loading} onClick={signupClick}>Zaloguj</LoginButton>
+                </ButtonsWrapper>
+                {/*<button onClick={logoutUser} >wyloguj</button>*/}
             </AuthProvider>
+                </Wrapper>
+            </Container>
         </>
     )
 }
