@@ -24,6 +24,8 @@ export const BoxContainer = styled.div`
 
 export const ColumnContainer= styled.div`
   display: block;
+  @import url('https://fonts.googleapis.com/css2?family=Gantari:wght@300&display=swap');
+  font-family: 'Gantari', sans-serif;
   height: 30%;
   width: 100%;
   border-radius: 10px;

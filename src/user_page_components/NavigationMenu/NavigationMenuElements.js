@@ -60,7 +60,8 @@ export const Menu = styled.div`
   z-index: 10;
   transition: all 540ms ease-out;
   background: #3A3F44;
-
+  @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+  font-family: 'Lato', sans-serif;
   @media screen and (min-width: 769px){
     &:hover{
       width: 240px;

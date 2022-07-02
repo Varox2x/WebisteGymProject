@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {Link} from 'react-scroll'
 
 export const Button = styled(Link)`
+  @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
   border-radius: 50px;
   background: ${({primary}) => (primary ? '#6BD1F7' : '#010606')
 };
@@ -16,7 +17,7 @@ export const Button = styled(Link)`
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease-in-out;
-  
+  font-family: 'Lato', sans-serif;
   &:hover {
     transition: all 0.2s ease-in-out;
     background: ${({primary}) => (primary ? '#fff' : '#01BF71')

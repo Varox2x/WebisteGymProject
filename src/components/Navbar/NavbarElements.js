@@ -5,6 +5,7 @@ import {mobileBreakpoint} from "../../settings/settings";
 import {maxWidthContainer} from "../../settings/settings";
 
 export const Nav = styled.nav `
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
   background: #000;
   @media screen and (max-width: 768px) {
     background: transparent;
@@ -70,6 +71,8 @@ export const NavMenu = styled.ul`
 
 export const NavItem = styled.li`
   height: 80px;
+  font-family: 'Poppins', sans-serif;
+
 `
 
 export const NavLinks = styled(LinkS)`

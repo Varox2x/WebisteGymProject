@@ -14,6 +14,8 @@ export const Container = styled.div`
   background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(212,228,255,1) 0%);
   border-radius: 20px;
   padding-top: 7px;
+  @import url('https://fonts.googleapis.com/css2?family=Gantari:wght@300&display=swap');
+  font-family: 'Gantari', sans-serif;
 `
 
 export const TopWrap = styled.div`
@@ -35,6 +37,7 @@ export const TopWrapButton = styled.button`
 export const ExerciseName = styled.h3`
   text-align: center;
   font-size: 20px;
+  font-weight: bold;
 `
 
 export const WrapperInfo = styled.div`

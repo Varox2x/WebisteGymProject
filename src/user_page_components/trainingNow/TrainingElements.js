@@ -35,6 +35,8 @@ export const ExerciseList = styled.ul`
   display: flex;
   flex-direction: column;
   opacity: 90%;
+  @import url('https://fonts.googleapis.com/css2?family=Gantari:wght@300&display=swap');
+  font-family: 'Gantari', sans-serif;
 `
 export const SingleExerciseElement = styled.li`
     width: 100%;
@@ -175,6 +177,7 @@ export const ExcersiseDoneButton = styled.button`
   left: 0;
   right: 0;
   opacity: 0;
+  cursor: pointer;
 `
 
 export const DoneIcon = styled(MdDoneOutline)`
@@ -191,6 +194,8 @@ export const LastElementContentWrapper = styled.div`
 export const SaveAndCloseTraining = styled.div`
     width: 40px;
   height: 40px;
+  cursor: pointer;
+
 `
 export const CloseTrainingIcon = styled(AiOutlineFileDone)`
    font-size: 2.5rem;

@@ -11,4 +11,6 @@ export const ProgresWraper = styled.div`
   margin-right: auto;
   margin-left: auto;
   padding: 0 24px;
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
 `;

@@ -44,6 +44,9 @@ export const TrainingList = styled.ul`
   opacity: 85%;
   min-height: 100px;
   height: 100%;
+  @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
 `
 export const TrainingListElement = styled.li`
     width: 100%;

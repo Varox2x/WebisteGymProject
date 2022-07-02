@@ -10,6 +10,7 @@ export const HeroContainer = styled.div`
   height: 800px;
   position: relative;
   z-index: 1;
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
   
   :before{
     content: '';
@@ -73,6 +74,7 @@ export const HeroP = styled.p`
   font-size: 24px;
   text-align: center;
   max-width: 600px;
+  font-family: 'Open Sans', sans-serif;
 
   @media screen and (max-width: 768px) {
     font-size: 24px;

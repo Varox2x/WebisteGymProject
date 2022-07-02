@@ -3,7 +3,8 @@ import styled from 'styled-components'
 export const InfoContainer = styled.div`
   color: #fff;
   background: ${({lightBg}) => (lightBg ? `#f9f9f9` : `#010606`)};
-  
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
   @media screen and (max-width: 768px){
     padding: 100px 0;
   }
@@ -78,7 +79,8 @@ export const Heading = styled.h1`
   line-height: 1.1;
   font-weight: 600;
   color: ${({lightText}) => (lightText ? '#f7f8fa' : '#010606')};
-  
+  font-family: 'Open Sans', sans-serif;
+
   @media screen and (max-width: 480px) {
     font-size: 32px;
   }
@@ -90,6 +92,8 @@ export const Subtitle = styled.p`
   font-size: 18px;
   line-height: 24px;
   color ${({darkText}) => (darkText ? 'black' : '#fff')};
+  font-family: 'Open Sans', sans-serif;
+
 `;
 
 export const BtnWrap = styled.div`
