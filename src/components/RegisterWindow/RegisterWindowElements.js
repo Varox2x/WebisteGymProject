@@ -97,4 +97,8 @@ export const InputRegister = styled.input`
   display: block;
   @media screen and (max-width: 768px) {
   }
+  &:focus{
+    border: 2px solid black;
+  }
+  text-align: center;
 `

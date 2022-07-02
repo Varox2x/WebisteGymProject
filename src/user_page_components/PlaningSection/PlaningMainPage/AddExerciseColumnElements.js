@@ -87,6 +87,8 @@ export const AddTagButton = styled.button`
   height: 34px;
   margin: auto;
   z-index: 10;
+  background: transparent;
+  border: none;
 `
 
 export const TagList = styled.ul`
@@ -98,7 +100,10 @@ export const TagList = styled.ul`
 export const TagListElement = styled.li`
   margin: 5px;
   z-index: 10;
-  border: 2px solid green;
+  border: 2px solid black;
+  background: #b3d4fc;
+  padding: 0 5px;
+  border-radius: 5px;
 `
 export const TagListElementButton = styled.button`
   z-index: 10;
@@ -132,6 +137,11 @@ export const DoneButton = styled.button`
     width: 40px;
   height: 60px;
   border: none;
+`
+export const Rrrorp = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 

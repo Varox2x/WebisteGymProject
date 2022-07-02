@@ -7,8 +7,7 @@ import Stat from "../../../images/charttstat.png"
 export const singleInfo1 = {
     backgroundColor: "#f9f9f9",
     title: "Training Now",
-    description: "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem" +
-    "Lorem Lorem LoremLorem Lorem LoremLorem Lorem Lorem",
+    description: "Tryb training Now pomoże ci nadzorować aktualny trening: wgląd do ćwiczeń, liczba powtórzeń a także mierzenie czasu.",
     displayOrder: true,
     img: TreiningNow
 };
@@ -16,8 +15,7 @@ export const singleInfo1 = {
 export const singleInfo2 = {
     backgroundColor: "#f9f9f9",
     title: "Twórz plan",
-    description: "" +
-    "",
+    description: "W tej sekcji możesz tworzyć nowe ćwiczenia a także złożone z nich treningi!",
     displayOrder: false,
     img: Plan
 };
@@ -25,8 +23,7 @@ export const singleInfo2 = {
 export const singleInfo3 = {
     backgroundColor: "#f9f9f9",
     title: "Nadzoruj progres",
-    description: "Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem" +
-    "Lorem Lorem LoremLorem Lorem LoremLorem Lorem Lorem",
+    description: "Sekcja dzięki której będziesz obserwować swoje osiągi treningowe",
     displayOrder: true,
     img: Stat
 };

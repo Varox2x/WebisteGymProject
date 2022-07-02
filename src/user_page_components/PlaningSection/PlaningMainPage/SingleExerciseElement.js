@@ -35,8 +35,8 @@ export default ({nameex, series, phase, repeats, description, breaks, indexex, p
                     {(indexex ==0)? <>                    <InfoInputsWrapper><InputTitle>Liczba serii:</InputTitle><TrainingExerciseInput type={"number"} name="series" value={series} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper>
                         <InfoInputsWrapper><InputTitle>Liczba powtórzeń:</InputTitle><TrainingExerciseInput type={"number"} name="repeats" value={repeats} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper>
                         <InfoInputsWrapper><InputTitle>Faza:</InputTitle><TrainingExerciseInput type={"number"} name="phase" value={phase} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper>
-                        <InfoInputsWrapper><InputTitle>Przerwa:</InputTitle><TrainingExerciseInput type={"number"} name="break" value={breaks} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper>
-                        <InfoInputsWrapper><InputTitle>Opis:</InputTitle><TrainingExerciseInput style={{width: "70%"}} name="description" value={description} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper></> : null}
+                        <InfoInputsWrapper><InputTitle>Przerwa (s):</InputTitle><TrainingExerciseInput type={"number"} name="break" value={breaks} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper>
+                        <InfoInputsWrapper style={{width: "100%", padding: "0 46px"}}><InputTitle>Opis:</InputTitle><TrainingExerciseInput style={{width: "70%"}} name="description" value={description} onChange={(e) => typingExercinseInfo(e,indexex)}/></InfoInputsWrapper></> : null}
                 </WrapperInfo>
             </Container>
         </>

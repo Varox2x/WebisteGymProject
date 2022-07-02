@@ -26,7 +26,7 @@ const Navbar = ({toggle}) => {
       <>
           <Nav>
               <NavbarContainer>
-                <NavLogo to='/'>Logo</NavLogo>
+                <NavLogo to='/'>GYM PROGRES</NavLogo>
                   <MobileIcon color={mobileInconColor} onClick={toggle}>
                       <FaBars/>
                   </MobileIcon>
@@ -38,7 +38,7 @@ const Navbar = ({toggle}) => {
                           <NavLinks to='Progres' smooth={true} spy={true} offset={-50}  duration={500}>Progres</NavLinks>
                       </NavItem>
                       <NavItem>
-                          <NavLinks to='howitworks' smooth={true} spy={true} offset={-50}  duration={500}>how it works</NavLinks>
+                          <NavLinks to='howitworks' smooth={true} spy={true} offset={-50}  duration={500}>Jak to działa?</NavLinks>
                       </NavItem>
                   </NavMenu>
                   <NavBtn>

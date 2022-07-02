@@ -5,7 +5,7 @@ import {
     TraningDescriptionInput,
     TraningNameInput,
     FirstInfoButton,
-    ExercisesSectionWrapper, NextButton, ExercisesOrderWinodow, ExercisesOrderWinodowElements, SaveExerciseIcon
+    ExercisesSectionWrapper, NextButton, ExercisesOrderWinodow, ExercisesOrderWinodowElements, SaveExerciseIcon, Errorp
 } from "./AddTrainingColumnElements";
 import SingleExerciseElement from "./SingleExerciseElement";
 import {CloseIcon, EscapeButton} from "./AddExerciseColumnElements";
@@ -14,13 +14,19 @@ export default ({display, changeExerciseIndex, exercisesInTraining, setExercises
 
     const [treiningObjec, setTreiningObjec] = useState();
     const [mode, setMode] = useState("NaD") //ex Nad
+    const [error, setError] = useState("")
 
     function createTreningNameDescription(){
         //validate
-        setTreiningObjec({
-            ...namedescriptionInfo
-        })
-        setMode("ex")
+        if(namedescriptionInfo.trainingName.length > 4){
+            setTreiningObjec({
+                ...namedescriptionInfo
+            })
+            setMode("ex")
+        }
+        else {
+            setError("Nazwa treningu musi składać się conajmniej z 5 liter")
+        }
     }
 
     function typingNaD(e){
@@ -45,6 +51,7 @@ export default ({display, changeExerciseIndex, exercisesInTraining, setExercises
         <>
             <Container>
                 {(mode == "NaD")?                 <FirstInfoWrapper >
+                    <Errorp>{error}</Errorp>
                     <TraningNameInput onChange={(e) => typingNaD(e)} name="trainingName" value={namedescriptionInfo.trainingName} placeholder={"Podaj nazwe Treningu"}/>
                     <TraningDescriptionInput onChange={(e) => typingNaD(e)} name="description" value={namedescriptionInfo.description} placeholder={"Jeśli chcesz, dodaj opis"}/>
                     <FirstInfoButton onClick={() => display("basic")} style={{left: "0"}}><CloseIcon/></FirstInfoButton>

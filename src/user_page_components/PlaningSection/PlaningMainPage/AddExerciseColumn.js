@@ -4,7 +4,7 @@ import {
     Container, DoneButton, EscapeButton,
     InfoGetWrapper,
     InfoInput,
-    InfoInputName, InfoSelectType, SaveExerciseIcon, SendIcon,
+    InfoInputName, InfoSelectType, Rrrorp, SaveExerciseIcon, SendIcon,
     TagList, TagListElement, TagListElementButton,
     Wrapper
 } from "./AddExerciseColumnElements";
@@ -14,6 +14,7 @@ export default ({mode, display, setExercise}) => {
     const [inputInfo, setInputInfo] = useState({name: "", description: "", links: "", tags: [], type: "ciężar"});
     const [tags, setTags] = useState([]);
     const [tagInfo, setTagInfo] = useState("")
+    const [error, setError] = useState("");
     function typing(e){
         setInputInfo({
             ...inputInfo,
@@ -31,6 +32,7 @@ export default ({mode, display, setExercise}) => {
     }
 
     function typingTag(e){
+        setError("");
         setTagInfo(e.target.value)
     }
 
@@ -41,10 +43,16 @@ export default ({mode, display, setExercise}) => {
     }
 
     function addExercinseToBase(){
-        setExercise(inputInfo)
-        setInputInfo({name: "", description: "", links: "", type: "ciężar", tags: []})
-        setTags([]);
-        setTagInfo("");
+        if (inputInfo.name.length > 2){
+            setExercise(inputInfo)
+            setInputInfo({name: "", description: "", links: "", type: "ciężar", tags: []})
+            setTags([]);
+            setTagInfo("");
+        }
+        else {
+            setError("Nazwa ćwczenia musi zawierać conajmniej 3 litery")
+        }
+
     }
 
 
@@ -61,6 +69,7 @@ export default ({mode, display, setExercise}) => {
                 <Wrapper>
                     <EscapeButton onClick={()=> display("basic")}><CloseIcon/></EscapeButton>
                     <DoneButton onClick={addExercinseToBase} ><SaveExerciseIcon/></DoneButton>
+                    <Rrrorp>{error}</Rrrorp>
                     <InfoGetWrapper>
                         <InfoInputName>Nazwa Ćwiczenia</InfoInputName>
                         <InfoInput onChange={(e) => typing(e)} name="name" value={inputInfo.name}/>

@@ -42,6 +42,8 @@ export const TrainingList = styled.ul`
   border-radius: 20px;
   z-index: 20;
   opacity: 85%;
+  min-height: 100px;
+  height: 100%;
 `
 export const TrainingListElement = styled.li`
     width: 100%;
@@ -95,4 +97,20 @@ export const BackGroundVideo = styled.video`
   object-fit: cover;
   position: relative;
   z-index: 1;
+`
+
+export const NotrainingsParagraph = styled.p`
+  vertical-align: middle;
+  text-align: center;
+  font-size: 20px;
+`
+
+
+export const NotrainingsWrapper = styled.li`
+    display: flex;
+  width: 90%;
+  margin: auto;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
 `

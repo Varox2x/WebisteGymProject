@@ -57,6 +57,7 @@ export default () => {
             description: description,
             type: type
         }).then( () => getExercises())
+        setEditMode(false);
     }
 
     async function addTrainingToBase(name, description, array){
@@ -66,6 +67,7 @@ export default () => {
         }).then( () => getExercises())
         setExercisesInTraining([]);
         setnamedescriptionInfo({trainingName: "", description: ""});
+        setEditMode(false)
     }
 
     //--
@@ -171,9 +173,9 @@ export default () => {
         <>
             <BoxContainer>
                 {(mode == "basic")? <Column showColumnAnimation={showColumnAnimation.training} borderTop={false} editTaining={editTaining}  deleteDocument={deleteDocument} objects={baseTrainings} type={"treining"}></Column> : null}
-                {(mode == "exercise")? <AddExerciseColumn mode={editMode} setExercise={addExercise} display={changeMode} ></AddExerciseColumn> : null}
+                {(mode == "exercise")? <AddExerciseColumn  mode={editMode} setExercise={addExercise} display={changeMode} ></AddExerciseColumn> : null}
                 {(mode == "training")? <AddTrainingColumn setExercisesInTraining={setExercisesInTraining} editMode={editMode} namedescriptionInfo={namedescriptionInfo} setnamedescriptionInfo={setnamedescriptionInfo} addTrainingToBase={saveTreningInBase} arraylength={exercisesInTraining.length-1} moveUpInIndex={moveUpInIndex} exerciseobject={exercisesInTraining[0]} typingExercinseInfo={typingExercinseInfo} changeExerciseIndex={changeExerciseIndex}  exercisesInTraining={exercisesInTraining} changeExerciseIndex={changeExerciseIndex} display={changeMode} ></AddTrainingColumn> : null}
-                {(mode == "basic")? <AddTreiningButton onMouseEnter={(e) => setAnimationColumnOn(e)} name="training" onClick={(e) => addClicked(e)}>Dodaj Trening</AddTreiningButton> : null}
+                {(mode == "basic" && exercisesObjects.length != 0)? <AddTreiningButton onMouseEnter={(e) => setAnimationColumnOn(e)} name="training" onClick={(e) => addClicked(e)}>Dodaj Trening</AddTreiningButton> : null}
                 {(mode == "basic")? <AddExerciseButton onMouseEnter={(e) => setAnimationColumnOn(e)} name="exercise" onClick={(e) => addClicked(e)}>Dodaj Ćwiczenie</AddExerciseButton> : null}
                 <Column showColumnAnimation={showColumnAnimation.exercise} borderTop={true} editTaining={editTaining} deleteDocument={deleteDocument} setEditMode={setEditMode} mode={mode}   editExercise={editExercise} addExercise={addeExerciseToStateTreningInTreiningMode} showbutton={mode} objects={exercisesObjects} type={"exercise"}></Column>
             </BoxContainer>

@@ -8,7 +8,7 @@ export const homeObjOne = {
     description: 'Aplikacja Gym Progres powstała by pomóc ci podczas treningu,' +
         'dzięki niej twój trening będzie lepiej rozplanowany, a dzięki wbudowanej funkcjonalności będziesz mogł analizwać swoje postępy! ' +
         'Zaplanuj i wykonaj swój trening w 100%',
-    buttonLabel: 'Get started',
+    buttonLabel: 'Utwórz konto',
     imgStart: false,
     img: require('../../images/svg-1.png'),
     alt: 'picture',
@@ -25,11 +25,9 @@ export const homeObjTwo = {
     lightText: true,
     lightTextDesc: true,
     topLine: 'Jak To Działa?',
-    headLine: 'title',
-    description: 'Lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem' +
-        ' lorem lorem lorem lorem lorem lorem  lorem lorem lorem' +
-        ' lorem lorem lorem lorem lorem lorem',
-    buttonLabel: 'Get started',
+    headLine: 'Pomoc',
+    description: 'Aby korzystać z aplikacji utwórz konto, a następnie przejdź do strefy użytkownika. Dostepnę będą dwie sekcje: ,,planuj" oraz ,,Training Now". W pierwszej z nich dodaj ćwiczenia które chcesz wykonywać, następnie stwórz zestaw treningowy. W sekcji ,, Training Now " wybierz trening który chcesz zacząc a następnie przystąp do niego! ',
+    buttonLabel: 'Utwórz konto',
     imgStart: false,
     img: require('../../images/svg-1.png'),
     alt: 'picture',

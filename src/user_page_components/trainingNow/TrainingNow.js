@@ -39,9 +39,6 @@ export default () => {
     return (
         <>
         <Container>
-            {/*<BackGround>*/}
-            {/*    <BackGroundVideo  autoPlay loop muted src={Video} type='video/mp4'></BackGroundVideo>*/}
-            {/*</BackGround>*/}
             <Wrapper>
                 {(show == "list")? <TrainingList chooseTraining={chooseTraining} trainingList={trainingList}/> : null}
                 {(show == "training")? <Training setShow={setShow} training={training}/> : null}

@@ -201,3 +201,4 @@ export const CloseTrainingTitle = styled.p`
 
 
 
+

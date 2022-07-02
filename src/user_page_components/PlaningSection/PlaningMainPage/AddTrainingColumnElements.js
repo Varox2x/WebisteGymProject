@@ -96,4 +96,11 @@ export const NextButton = styled.button`
   border: none;
 `
 
+export const Errorp = styled.p`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+`
+
 

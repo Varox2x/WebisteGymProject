@@ -33,7 +33,7 @@ const VisitPage = () => {
             <HeroSection showRegisterWindow={displayWindow}/>
             <InfoSection {...homeObjOne} showRegisterWindow={displayWindow} />
             <ProgresSection/>
-            <InfoSection {...homeObjTwo} />
+            <InfoSection {...homeObjTwo}  showRegisterWindow={displayWindow} />
             <Footer/>
         </>
     )

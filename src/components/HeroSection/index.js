@@ -17,14 +17,14 @@ const HeroSection = ({showRegisterWindow}) => {
                 <VideoBg autoPlay loop muted src={Video} type='video/mp4'/>
             </HeroBg>
             <HeroContent>
-                <HeroH1>TITLE</HeroH1>
-                <HeroP>Title Description</HeroP>
+                <HeroH1>GYM PROGRES</HeroH1>
+                <HeroP>Work smart and hard</HeroP>
                 <HeroBtnWrapper>
                     <Button onClick={() => showRegisterWindow()} to="signup" onMouseEnter={onHover} onMouseLeave={onHover}
                             primary='true'
                             dark='true'
                     >
-                        Get started {hover ? <ArrowForward/> : <ArrowRight/>}
+                        Utwórz konto {hover ? <ArrowForward/> : <ArrowRight/>}
                     </Button>
                 </HeroBtnWrapper>
             </HeroContent>

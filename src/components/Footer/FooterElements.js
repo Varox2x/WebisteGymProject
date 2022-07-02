@@ -28,7 +28,7 @@ export const InfoBox = styled.div`
 export const InfoColumn = styled.div`
   width: 30%;
   height: 100%;
-  border: 2px solid red;
+  //border: 2px solid red;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;

@@ -5,6 +5,8 @@ import {
     SingleBlockContainerTitle,
     SingleBlockContainerUnderTitle
 } from "./PlaningMainPageElements";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 
 export default ({index, updatepoz, type, name, description, links, tags, showbutton, addExercise, array, editExercise, mode, deleteDocument, editTaining}) => {

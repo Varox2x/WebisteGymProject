@@ -23,11 +23,12 @@ const RegisterWindow = ({isDisplayed,showRegisterWindow}) => {
     const {signup, login, currentUser} = useAuth();
     const [inputInfo, setInputInfo] = useState({username: "", email: "", password: "", repeatpassword: ""})
     const history = useNavigate()
-    const [error, setError] = useState(false);
+    const [error, setError] = useState("");
 
 
 
     function typing(e){
+        setError("")
         setInputInfo({
             ...inputInfo,
             [e.target.name]: e.target.value
@@ -35,12 +36,23 @@ const RegisterWindow = ({isDisplayed,showRegisterWindow}) => {
     }
 
     async function register(){
-        try {
-            await signup(inputInfo.email, inputInfo.password);
-            history("/strefauzytkownika")
-        }   catch (error){
-            console.log(error)
+        if(inputInfo.password == inputInfo.repeatpassword && inputInfo.email.length > 5){
+            try {
+                await signup(inputInfo.email, inputInfo.password);
+                history("/strefauzytkownika")
+            }   catch (e){
+                console.log(e)
+            }
         }
+        else{
+            if(inputInfo.password != inputInfo.repeatpassword){
+                setError("Hasła muszą być identyczne!")
+            }
+            if(inputInfo.email.length < 5){
+                setError(prevState => prevState + " Podaj poprawny email")
+            }
+        }
+
     }
 
 
@@ -53,6 +65,7 @@ const RegisterWindow = ({isDisplayed,showRegisterWindow}) => {
                 <RegisterWraper className={isDisplayed? "animation" : ""}>
                     <Exit onClick={() => showRegisterWindow()}>X</Exit>
                     <Title>Rejestracja</Title>
+                    <p>{error}</p>
                     <ArearWrapper>
                         <SingleTitle>Email:</SingleTitle>
                         <label>

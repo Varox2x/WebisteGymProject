@@ -16,11 +16,11 @@ const Sidebar = ({isOpen, toggle}) => {
                         Progres
                     </SidebarLink>
                     <SidebarLink to="howitworks" onClick={toggle}>
-                        How it works
+                        Jak to działa?
                     </SidebarLink>
-                    <SidebarLink to="signup" onClick={toggle}>
-                        Sign Up
-                    </SidebarLink>
+                    {/*<SidebarLink to="signup" onClick={toggle}>*/}
+                    {/*    Sign Up*/}
+                    {/*</SidebarLink>*/}
                 </SidebarMenu>
                 <SideBtnWrap>
                     <SidebarRoute to="/strefauzytkownika">Strefa użytkownika</SidebarRoute>
