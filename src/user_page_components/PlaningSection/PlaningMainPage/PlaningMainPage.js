@@ -4,10 +4,8 @@ import {AddExerciseButton, AddTreiningButton, BoxContainer} from "./PlaningMainP
 import AddExerciseColumn from "./AddExerciseColumn";
 import AddTrainingColumn from "./AddTrainingColumn";
 import {useAuth} from "../../../context/AuthContext";
-import { getDocs , setDoc, collection, doc, getDoc , deleteDoc, updateDoc } from "firebase/firestore";
-import { getFirestore} from "firebase/firestore";
+import { getDocs , setDoc, collection, doc , deleteDoc } from "firebase/firestore";
 import {db} from "../../../firebase";
-import {EscapeButton} from "./AddExerciseColumnElements";
 
 
 
@@ -15,21 +13,12 @@ export default () => {
 
     const {currentUser} = useAuth();
 
-
     const [mode, setMode] = useState("basic");
     const [editMode, setEditMode] = useState(false);
-    // exercise training
-    const [addexercisemode, setaddexercisemode] = useState(false)
-    const [modeVersion, setModeVersion] = useState("AddNewTreining")
     const [baseTrainings, setBaseTrainings] = useState([]);
-
-    //baza=> z api
-
+    const [showColumnAnimation, setShowColumnAnimation] = useState({training: false, exercise: false})
     const [exercisesObjects, setExercisesObjects] = useState([]);
-
-    //state tworzonego treningu
     const [namedescriptionInfo, setnamedescriptionInfo] = useState({trainingName: "", description: ""});
-
     const [exercisesInTraining, setExercisesInTraining] = useState([])
 
     //funkcje z api
@@ -37,7 +26,6 @@ export default () => {
         setExercisesObjects([]);
         const exercises = await getDocs(collection(db, "users", `${currentUser.uid}`, "exercises"));
         exercises.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
             setExercisesObjects(prevState => [...prevState, {...doc.data(), name: `${doc.id}`}])
         });
     }
@@ -45,17 +33,16 @@ export default () => {
         setBaseTrainings([]);
         const trainings = await getDocs(collection(db, "users", `${currentUser.uid}`, "workouts"));
         trainings.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
             setBaseTrainings(prevState => [...prevState, {...doc.data(), name: `${doc.id}`}])
         });
     }
 
     async function addExercise({name, links, description, type, tags}){
         await setDoc(doc(db, "users", `${currentUser.uid}`, "exercises", `${name}`), {
-            tags: tags,
-            links: links,
-            description: description,
-            type: type
+            tags,
+            links,
+            description,
+            type
         }).then( () => getExercises())
         setEditMode(false);
     }
@@ -83,7 +70,6 @@ export default () => {
     }
 
     function addClicked(e){
-        setModeVersion(e.target.name);
         changeMode(e.target.name);
     }
 
@@ -119,7 +105,6 @@ export default () => {
         ])
     }
 
-    const [showColumnAnimation, setShowColumnAnimation] = useState({training: false, exercise: false})
 
     function setAnimationColumnOn(e){
         setShowColumnAnimation({...showColumnAnimation,
@@ -159,10 +144,10 @@ export default () => {
     async function deleteDocument(e,col){
         console.log(e.target.name)
         await deleteDoc(doc(db, "users",`${currentUser.uid}`,`${col}`, `${e.target.name}`)).then(() => {
-            if(col == "exercises"){
+            if(col === "exercises"){
                 getExercises()
             }
-            if(col == "workouts"){
+            if(col === "workouts"){
                 getTrainings()
             }
         })
@@ -172,12 +157,12 @@ export default () => {
     return (
         <>
             <BoxContainer>
-                {(mode == "basic")? <Column showColumnAnimation={showColumnAnimation.training} borderTop={false} editTaining={editTaining}  deleteDocument={deleteDocument} objects={baseTrainings} type={"treining"}></Column> : null}
-                {(mode == "exercise")? <AddExerciseColumn  mode={editMode} setExercise={addExercise} display={changeMode} ></AddExerciseColumn> : null}
-                {(mode == "training")? <AddTrainingColumn setExercisesInTraining={setExercisesInTraining} editMode={editMode} namedescriptionInfo={namedescriptionInfo} setnamedescriptionInfo={setnamedescriptionInfo} addTrainingToBase={saveTreningInBase} arraylength={exercisesInTraining.length-1} moveUpInIndex={moveUpInIndex} exerciseobject={exercisesInTraining[0]} typingExercinseInfo={typingExercinseInfo} changeExerciseIndex={changeExerciseIndex}  exercisesInTraining={exercisesInTraining} changeExerciseIndex={changeExerciseIndex} display={changeMode} ></AddTrainingColumn> : null}
-                {(mode == "basic" && exercisesObjects.length != 0)? <AddTreiningButton onMouseEnter={(e) => setAnimationColumnOn(e)} name="training" onClick={(e) => addClicked(e)}>Dodaj Trening</AddTreiningButton> : null}
-                {(mode == "basic")? <AddExerciseButton onMouseEnter={(e) => setAnimationColumnOn(e)} name="exercise" onClick={(e) => addClicked(e)}>Dodaj Ćwiczenie</AddExerciseButton> : null}
-                <Column showColumnAnimation={showColumnAnimation.exercise} borderTop={true} editTaining={editTaining} deleteDocument={deleteDocument} setEditMode={setEditMode} mode={mode}   editExercise={editExercise} addExercise={addeExerciseToStateTreningInTreiningMode} showbutton={mode} objects={exercisesObjects} type={"exercise"}></Column>
+                {mode === "basic" && <Column showColumnAnimation={showColumnAnimation.training} borderTop={false} editTaining={editTaining}  deleteDocument={deleteDocument} objects={baseTrainings} type={"treining"}/>}
+                {mode === "exercise" && <AddExerciseColumn  mode={editMode} setExercise={addExercise} display={changeMode} />}
+                {mode === "training" && <AddTrainingColumn setExercisesInTraining={setExercisesInTraining} editMode={editMode} namedescriptionInfo={namedescriptionInfo} setnamedescriptionInfo={setnamedescriptionInfo} addTrainingToBase={saveTreningInBase} arraylength={exercisesInTraining.length-1} moveUpInIndex={moveUpInIndex} exerciseobject={exercisesInTraining[0]} typingExercinseInfo={typingExercinseInfo} changeExerciseIndex={changeExerciseIndex}  exercisesInTraining={exercisesInTraining} display={changeMode} />}
+                {mode === "basic" && (exercisesObjects.length !== 0) && <AddTreiningButton onMouseEnter={(e) => setAnimationColumnOn(e)} name="training" onClick={(e) => addClicked(e)}>Dodaj Trening</AddTreiningButton>}
+                {mode === "basic"&& <AddExerciseButton onMouseEnter={(e) => setAnimationColumnOn(e)} name="exercise" onClick={(e) => addClicked(e)}>Dodaj Ćwiczenie</AddExerciseButton>}
+                <Column showColumnAnimation={showColumnAnimation.exercise} borderTop={true} editTaining={editTaining} deleteDocument={deleteDocument} setEditMode={setEditMode} mode={mode}   editExercise={editExercise} addExercise={addeExerciseToStateTreningInTreiningMode} showbutton={mode} objects={exercisesObjects} type={"exercise"}/>
             </BoxContainer>
         </>
     )

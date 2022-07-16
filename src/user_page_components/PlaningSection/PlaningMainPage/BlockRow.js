@@ -22,7 +22,7 @@ export default ({index, updatepoz, type, name, description, links, tags, showbut
                         )
                     })}
                 </SingleBlockContainerContent>
-                <ButtonDisplayedOnAddTrening onClick={(e) => deleteDocument(e, "workouts")} name={name} style={{left: "0", width: "50%", height: "15%"}}></ButtonDisplayedOnAddTrening>
+                <ButtonDisplayedOnAddTrening onClick={(e) => deleteDocument(e, "workouts")} name={name} style={{left: "0", width: "50%", height: "15%"}}/>
                 <DeleteIcon/>
                 <ButtonDisplayedOnAddTrening onClick={(e) => editTaining(e)} name={index} style={{right: "0", width: "50%", height: "15%"}}></ButtonDisplayedOnAddTrening><EditIcon/>
             </SingleBlockContainer>

@@ -8,7 +8,7 @@ const Navbar = ({toggle}) => {
     const [mobileInconColor, setmobileInconColor] = useState("#fff");
     const {currentUser} = useAuth();
 
-        document.addEventListener('scroll', function (e) {
+        document.addEventListener('scroll',  (e) => {
             if (window.scrollY >= 800){
                 setmobileInconColor("black");
             }

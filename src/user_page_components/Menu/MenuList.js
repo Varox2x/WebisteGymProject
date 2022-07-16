@@ -30,7 +30,7 @@ import {BsSearch} from "react-icons/bs"
 const IconAndTitle = ({isTitle, name, children, display, goTo, pageSizeWight}) => {
   return (
       <Link to={`${goTo}`}>
-            <MenuListElement isTitle={isTitle} display={display? true : false}><MenuListElementA style={{ fontSize: `${isTitle? "250%" : "130%"}`}}>
+            <MenuListElement isTitle={isTitle} display={display}><MenuListElementA style={{ fontSize: `${isTitle? "250%" : "130%"}`}}>
                 {children}
             </MenuListElementA><SingleTitle style={{fontSize: `${isTitle? "25px" : "16px"}`, opacity: (pageSizeWight> 768 )? `${display? "100%" : "0"}` : "100%"}} >{name}</SingleTitle></MenuListElement>
       </Link>

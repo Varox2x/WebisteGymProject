@@ -47,7 +47,7 @@ const InfoSection = ({lightBg,id,imgStart,topLine,lightText,headLine,darkText,de
                                 <Heading lightText={lightText}>{headLine}</Heading>
                                 <Subtitle darkText={darkText}>{description}</Subtitle>
                                 <BtnWrap>
-                                    <Button onClick={() => showRegisterWindow()}
+                                    <Button onClick={showRegisterWindow}
                                             to="home"
                                             smooth={true}
                                             duration={500}
@@ -66,7 +66,7 @@ const InfoSection = ({lightBg,id,imgStart,topLine,lightText,headLine,darkText,de
                             {/*    <Img src={img} alt={alt}/>*/}
                             {/*</ImgWrap>*/}
                             {/*<Animation animationLaptop={startanimationLaptop} startanimation={startanimation}/>*/}
-                            {showAnimation? null : <Animation animationLaptop={startanimationLaptop} startanimation={startanimation}/>}
+                            {!showAnimation && <Animation animationLaptop={startanimationLaptop} startanimation={startanimation}/>}
                         </Column2>
                     </InfoRow>
                 </InfoWrapper>

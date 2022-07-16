@@ -129,10 +129,7 @@ export const ListSingleElement = styled.li`
   width: 260px;
   background: #b3d4fc;
   border: 2px solid black;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   border-radius: 20px;
   display: flex;
   padding: 8px 20px;
@@ -143,7 +140,8 @@ export const ListSingleElement = styled.li`
   z-index: 9;
   cursor: pointer;
   position: relative;
-  &:hover{
+
+  &:hover {
     background: lightpink;
   }
 `

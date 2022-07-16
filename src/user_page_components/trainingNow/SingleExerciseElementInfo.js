@@ -22,7 +22,7 @@ export default ({doneClicked, work, typingRepHev}) => {
         <SingleExerciseInfoWrapper>
             {work.map((el, inx) => {
                 return (
-                    <SingleSeries animation={(inx > 0)? ((work[inx-1].done == true && work[inx].done == false)? true : false) : false}  last={(work.length-1 == inx)? true : false} primary={el.done}  style={{height: `${100 / work.length}%`}} >
+                    <SingleSeries animation={(inx > 0)? ((work[inx - 1].done && !work[inx].done)) : false} last={(work.length-1 === inx)} primary={el.done} style={{height: `${100 / work.length}%`}} >
                         <SeriesInputWrapper>
                             <SeriesInputTitle>Powtórzenia:</SeriesInputTitle>
                             <SeriesInput name="repeats" type="number" placeholder={el.repeats} onChange={(e) => typingRepHev(e,inx)} value={el.repeats}/>

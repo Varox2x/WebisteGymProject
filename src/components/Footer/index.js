@@ -5,17 +5,16 @@ import {CreatedBy, FooterContainer, FooterWraper, InfoBox, InfoColumn} from "./F
 
 const Footer = () => {
   return (
-      <>
+
           <FooterContainer>
               <FooterWraper>
                 <InfoBox>
-                    <InfoColumn></InfoColumn>
-                    <InfoColumn></InfoColumn>
+                    <InfoColumn/>
+                    <InfoColumn/>
                     <InfoColumn><CreatedBy>Created by Hubert Rutkowski</CreatedBy></InfoColumn>
                 </InfoBox>
               </FooterWraper>
           </FooterContainer>
-      </>
   )
 }
 

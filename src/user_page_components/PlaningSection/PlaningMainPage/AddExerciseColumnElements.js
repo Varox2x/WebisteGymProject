@@ -64,8 +64,7 @@ export const InfoGetWrapper = styled.div`
 `
 
 export const    InfoInputName= styled.h2`
-  margin: auto;
-  margin-bottom: 10px;
+  margin: auto auto 10px;
   font-size: 20px;
 `
 
@@ -130,8 +129,8 @@ export const EscapeButton = styled.button`
 `
 export const DoneButton = styled.button`
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0;
+    right: 0;
     z-index: 10;
   background: transparent;
     width: 40px;

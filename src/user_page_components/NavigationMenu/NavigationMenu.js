@@ -19,7 +19,6 @@ import Video from "../../videos/benchpress.mp4";
 export default (props) => {
 
     const [mauseOn, setMauseOn] = useState(false);
-    const [cursorePozition, setCursorPozition] = useState(null);
     const [pageSize, setPageSize] = useState("850px")
     const [pageSizeWight, setpageSizeWight] = useState("")
     const {currentUser} = useAuth();
@@ -42,7 +41,7 @@ export default (props) => {
 
     return (
         <>
-            <MobileMenuIcon onClick={() => setDisplayMenu(!displayMenu)} style={{display: (displayMenu == false)? "block" : "none"}}>
+            <MobileMenuIcon onClick={() => setDisplayMenu(!displayMenu)} style={{display: (displayMenu === false)? "block" : "none"}}>
                 <FaBars/>
             </MobileMenuIcon>
             <Navigation>
@@ -57,7 +56,7 @@ export default (props) => {
                 </Menu>
                 <Wrapper blur={mauseOn == true && pageSizeWight > 768}>
                     <BackGround>
-                        <BackGroundVideo  autoPlay loop muted src={Video} type='video/mp4'></BackGroundVideo>
+                        <BackGroundVideo  autoPlay loop muted src={Video} type='video/mp4'/>
                     </BackGround>
                     {props.children}
                 </Wrapper>

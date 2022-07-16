@@ -36,7 +36,7 @@ const RegisterWindow = ({isDisplayed,showRegisterWindow}) => {
     }
 
     async function register(){
-        if(inputInfo.password == inputInfo.repeatpassword && inputInfo.email.length > 5){
+        if(inputInfo.password === inputInfo.repeatpassword && inputInfo.email.length > 5){
             try {
                 await signup(inputInfo.email, inputInfo.password);
                 history("/strefauzytkownika")
@@ -45,7 +45,7 @@ const RegisterWindow = ({isDisplayed,showRegisterWindow}) => {
             }
         }
         else{
-            if(inputInfo.password != inputInfo.repeatpassword){
+            if(inputInfo.password !== inputInfo.repeatpassword){
                 setError("Hasła muszą być identyczne!")
             }
             if(inputInfo.email.length < 5){

@@ -92,7 +92,7 @@ export default ({training,setShow}) => {
                 console.log(exercise)
                     let counter = 0;
                     exercise.work.forEach((el ,inx) => {
-                        if(el.done == true){
+                        if(el.done){
                             counter++;
                         }
                     })

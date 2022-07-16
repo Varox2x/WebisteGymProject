@@ -10,11 +10,11 @@ import {
 } from "./AddExerciseColumnElements";
 
 export default ({mode, display, setExercise}) => {
-
     const [inputInfo, setInputInfo] = useState({name: "", description: "", links: "", tags: [], type: "ciężar"});
     const [tags, setTags] = useState([]);
     const [tagInfo, setTagInfo] = useState("")
     const [error, setError] = useState("");
+
     function typing(e){
         setInputInfo({
             ...inputInfo,
@@ -57,7 +57,7 @@ export default ({mode, display, setExercise}) => {
 
 
     useEffect(() => {
-        if (mode !== false){
+        if (mode){
             setInputInfo({...mode})
         }
     },[])

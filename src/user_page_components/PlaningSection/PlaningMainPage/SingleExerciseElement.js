@@ -24,7 +24,7 @@ export default ({nameex, series, phase, repeats, description, breaks, indexex, p
         <>
             <Container style={{height: "45%", width: `${90 - (indexex * 3)}%`, bottom: `${indexex * 6.7}%`, left: `${indexex * 1.07 + 5}%`, zIndex: `${20 - indexex}`}}>
                 <TopWrap>
-                    <SwitchOrderButton style={{left: "35%", right:"35%"}} onClick={(e) => placefirst(e)} name={indexex}></SwitchOrderButton>
+                    <SwitchOrderButton style={{left: "35%", right: "35%"}} onClick={(e) => placefirst(e)} name={indexex}/>
                     <SwitchOrderButton style={{display: `${(indexex == arraylength)? "none" : "block"}`, right: "65%", left: "0"}} name={indexex} onClick={(e) => moveUpInIndex(e, false)}></SwitchOrderButton>
                     <DownIcon style={{display: `${(indexex == arraylength)? "none" : "block"}`}}/>
                     <SwitchOrderButton style={{display: `${(indexex == 0)? "none" : "block"}`, left: "65%", right: "0"}} name={indexex} onClick={(e) => moveUpInIndex(e, true)}></SwitchOrderButton>
